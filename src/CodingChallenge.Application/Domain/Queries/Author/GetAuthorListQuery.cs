@@ -1,7 +1,7 @@
+using System.Collections.Generic;
+using MediatR;
+
 namespace CodingChallenge.Application.Domain.Queries.Author
 {
-    public class GetAuthorListQuery
-    {
-        
-    }
+    public record GetAuthorListQuery() : IRequest<IEnumerable<Models.Author>>;
 }

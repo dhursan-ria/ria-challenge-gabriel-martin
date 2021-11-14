@@ -1,7 +1,6 @@
+using MediatR;
+
 namespace CodingChallenge.Application.Domain.Commands.Author
 {
-    public class UpdateAuthorCommand
-    {
-        
-    }
+    public record UpdateAuthorCommand(Models.Author Author) : IRequest<Models.Author>;
 }

@@ -1,7 +1,6 @@
+using MediatR;
+
 namespace CodingChallenge.Application.Domain.Commands.Book
 {
-    public class UpdateBookCommand
-    {
-        
-    }
+    public record UpdateBookCommand(Models.Book Book) : IRequest<Models.Book>;
 }

@@ -1,7 +1,7 @@
+using System;
+using MediatR;
+
 namespace CodingChallenge.Application.Domain.Commands.Book
 {
-    public class DeleteBookCommand
-    {
-        
-    }
+    public record DeleteBookCommand(Guid BookId) : IRequest;
 }

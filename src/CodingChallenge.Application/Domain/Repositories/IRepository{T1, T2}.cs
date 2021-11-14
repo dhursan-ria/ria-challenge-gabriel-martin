@@ -5,7 +5,7 @@ using CodingChallenge.Application.Domain.Models;
 
 namespace CodingChallenge.Application.Domain.Repositories
 {
-    public interface IRepository<T1, in T2> where T1 : IEntity<T2> where T2 : IComparable
+    public interface IRepository<T1, in T2> where T1 : class, IEntity<T2> where T2 : IComparable
     {
         Task<T1?> GetById(T2 entityId);
         Task<IEnumerable<T1>> GetAll();

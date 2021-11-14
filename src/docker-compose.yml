@@ -1,0 +1,35 @@
+version: '3.9'
+services:
+  web:
+    image: cc/web:${TAG:-latest}
+    container_name: cc-web
+    build:
+      context: .
+      dockerfile: CodingChallenge.Web/Dockerfile
+    environment:
+      ConnectionStrings__LibraryContext: "host=postgres;port=5432;database=Library;username=postgres;password=mypass;"
+    ports:
+      - '8090:80'
+    depends_on:
+      - 'postgres'
+    networks:
+      - docker-api
+
+  postgres:
+    ports:
+      - '5432:5432'
+    container_name: cc-postgresql
+    environment:
+      - POSTGRES_PASSWORD=mypass
+    volumes:
+      - 'cc-postgresql-volume:/var/lib/postgresql/data'
+    image: 'postgres:latest'
+    networks:
+      - docker-api
+
+volumes:
+  cc-postgresql-volume:
+
+networks:
+  docker-api:
+    driver: bridge

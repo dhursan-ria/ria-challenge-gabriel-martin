@@ -6,7 +6,7 @@ using Xunit;
 
 namespace CodingChallenge.Web.Tests.Author
 {
-    public class GetAuthorScenario : AuthorScenarioBase
+    public class GetAuthorsScenario : AuthorScenarioBase
     {
         [Fact]
         public async Task GetAuthorsResponseOkStatusCode()
